@@ -47,15 +47,15 @@ export default function MenuTable() {
           fetch("/api/foodItems"),
         ])
 
-        const categoryData = await catRes.json()
+        const categoryJson = await catRes.json();
         const foodItemData = await foodRes.json()
 
-        setCategories(categoryData)
+         setCategories(categoryJson.data);
         setFoodItems(foodItemData.data)
 
-        if (categoryData.length > 0) {
-          setDefaultCategory(categoryData[0].id)
-        }
+        if (categoryJson.data.length > 0) {
+        setDefaultCategory(categoryJson.data[0].id);
+      }
       } catch (error) {
         console.error("Error fetching data:", error)
       }
