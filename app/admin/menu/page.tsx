@@ -18,7 +18,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { DeleteDropdownItem } from "./_components/ProductActions";
 import { MoreVertical } from "lucide-react"; // Added correct import for the icon
 
 type FoodItemData = {
@@ -82,7 +81,6 @@ async function ProductsTable() {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DeleteDropdownItem id={foodItem.id} />
                 </DropdownMenuContent>
               </DropdownMenu>
             </TableCell>

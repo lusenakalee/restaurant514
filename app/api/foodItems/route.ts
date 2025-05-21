@@ -20,8 +20,14 @@ export async function GET() {
 
     // Return foodItems in the response
     return NextResponse.json({ success: true, data: foodItems });
-  } catch (error: any) {
+  } catch  (error: unknown){
+    let message = "An unexpected error occurred";
+
+    if (error instanceof Error) {
+      message = error.message;
+    }
+
     console.error('Error fetching foodItems:', error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }
